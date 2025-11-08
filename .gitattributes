@@ -3,6 +3,18 @@
 ###############################################################################
 * text=auto
 
+# Force LF for Unity & text assets (recommended cross-platform)
+*.cs     text eol=lf
+*.shader text eol=lf
+*.txt    text eol=lf
+*.json   text eol=lf
+*.xml    text eol=lf
+*.meta   text eol=lf
+*.unity  text eol=lf
+*.prefab text eol=lf
+*.asmdef text eol=lf
+*.gitattributes text eol=lf
+
 ###############################################################################
 # Set default behavior for command prompt diff.
 #
@@ -61,3 +73,10 @@
 #*.PDF   diff=astextplain
 #*.rtf   diff=astextplain
 #*.RTF   diff=astextplain
+
+# Treat common binary formats as binary
+*.png    binary
+*.jpg    binary
+*.fbx    binary
+*.wav    binary
+*.mp3    binary
