@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class BirdScript : MonoBehaviour
 {
@@ -12,6 +13,11 @@ public class BirdScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        myRigidbody.linearVelocity = Vector2.up * 10;
+        if (myRigidbody == null) return;
+
+        if (Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame)
+        {
+            myRigidbody.linearVelocity = Vector2.up * 10;
+        }
     }
 }
