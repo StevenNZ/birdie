@@ -1,16 +1,27 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LogicScript : MonoBehaviour
 {
-    public int PlayerScore = 0;
-    public TextMeshProUGUI ScoreText;
+    public int playerScore = 0;
+    public TextMeshProUGUI scoreText;
+    public GameObject gameOverScreen;
 
     [ContextMenu("Increase Score")]
     public void addScore(int scoreToAdd)
     {
-        PlayerScore += scoreToAdd;
-        ScoreText.text = PlayerScore.ToString();
+        playerScore += scoreToAdd;
+        scoreText.text = playerScore.ToString();
+    }
+
+    public void restartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void gameOver()
+    {
+        gameOverScreen.SetActive(true);
     }
 }
