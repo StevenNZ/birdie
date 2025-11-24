@@ -6,6 +6,7 @@ public class BirdScript : MonoBehaviour
     public Rigidbody2D myRigidbody;
     public float jumpForce = 10f;
     public LogicScript logicScript;
+    public bool birdIsAlive = true;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,7 +20,7 @@ public class BirdScript : MonoBehaviour
     {
         if (myRigidbody == null) return;
 
-        if (Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame)
+        if (Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame && birdIsAlive)
         {
             myRigidbody.linearVelocity = Vector2.up * jumpForce;
         }
@@ -28,5 +29,6 @@ public class BirdScript : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         logicScript.gameOver();
+        birdIsAlive = false;
     }
 }
